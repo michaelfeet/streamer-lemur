@@ -24,6 +24,7 @@ MPAA_RATINGS = (
     ('M', 'Mature Audience, Be Advised'),
 )
 
+
 class Media(models.Model):
     name = models.CharField(max_length=350)
     description = models.TextField(max_length=650)
@@ -37,4 +38,3 @@ class Media(models.Model):
         choices=MPAA_RATINGS,
         default=MPAA_RATINGS[0][0]
     )
-    
