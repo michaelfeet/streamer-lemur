@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .models import Media
 
 from django.views.generic.edit import CreateView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 # Create your views here.
@@ -17,4 +17,7 @@ class MediaCreate(CreateView):
     fields = '__all__'
 
 class MediaList(ListView):
+    model=Media
+
+class MediaDetail(DetailView):
     model=Media
