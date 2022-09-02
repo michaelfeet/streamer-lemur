@@ -7,7 +7,7 @@
 <div class="container">
 <div class="row">
     {% for media in media_list %}
-        <a href="#">
+        <a href="{% url 'media_detail' media.id %}">
 
             <div class="card col-3">
                 <img src="..." class="card-img-top" alt="...">
