@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -22,6 +23,7 @@ MPAA_RATINGS = (
     ('R', 'R'),
     ('N', 'NC-17'),
     ('M', 'Mature Audience, Be Advised'),
+    ('O', 'Not Rated')
 )
 
 class Media(models.Model):
@@ -37,4 +39,6 @@ class Media(models.Model):
         choices=MPAA_RATINGS,
         default=MPAA_RATINGS[0][0]
     )
+    def get_absolute_url(self):
+        return reverse('media_detail', kwargs={'pk': self.id})
     
