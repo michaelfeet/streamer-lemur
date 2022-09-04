@@ -19,10 +19,10 @@
                     <a class="navbar-brand" href="#">Streamer Lemur</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!-- changes below -->
-                        <li><a href="#">About</a></li>
                         {% if user.is_authenticated %}
                           <li><a href="{% url 'media_create' %}">Add Media</a></li>
                           <li><a href="{% url 'media_index' %}">View All Media</a></li>
+                          <li><a href="{% url 'journals_index' %}">View My Journals</a></li>
                           <li><a href="{% url 'logout' %}">Log Out</a></li>
                         {% else %}
                           <li><a href="{% url 'login' %}">Log In</a></li>

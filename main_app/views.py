@@ -22,9 +22,20 @@ class MediaList(ListView):
 class MediaDetail(DetailView):
     model=Media
 
+
 class JournalCreate(CreateView):
     model = Journal
-    fields = '__all__' 
+    fields = ['last_date_watched', 'continue_watching', 'completed_watching', 'would_watch_again', 'movie']
+    
+    
+    def form_valid(self, form):
+        media = Media.objects.get(id= self.kwargs['media_id'])
+        form.instance.user = self.request.user
+        form.instance.media = media
+        return super().form_valid(form)
+    
+class JournalList(ListView):
+    model=Journal
 
-def ournalCreate(request):
-    pass
+class JournalDetail(DetailView):
+    model=Journal
