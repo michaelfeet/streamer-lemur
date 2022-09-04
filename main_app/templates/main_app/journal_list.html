@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>This is the Journal List view</h1>
+<div class="container">
+<div class="row">
+    {% for journal in journal_list %}
+        <a href="{% url 'journals_detail' journal.id %}">
+
+            <div class="card col-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">{{journal.last_date_watched}}</p>
+                </div>
+            </div>        
+        </a>
+    {% endfor %}
+</div>
+</div>
+
+{% endblock content %}

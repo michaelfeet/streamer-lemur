@@ -52,24 +52,26 @@ YES_NO = (
 class Journal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     media = models.ForeignKey(Media, on_delete=models.CASCADE)
+    # media = models.
     last_date_watched = models.DateField()
     continue_watching = models.CharField(
         max_length=1,
         choices=YES_NO,
-        required=True
     )
     completed_watching = models.CharField(
         max_length=1,
         choices=YES_NO,
-        required=True
+     
     )
     would_watch_again = models.CharField(
         max_length=1,
         choices=YES_NO,
-        required=True
+       
     )
     movie = models.CharField(
         max_length=1,
         choices=YES_NO,
-        required=True
+       
     )
+    def get_absolute_url(self):
+        return reverse('journals_detail', kwargs={'pk': self.id})
