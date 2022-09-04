@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 GENRES = (
@@ -41,4 +43,33 @@ class Media(models.Model):
     )
     def get_absolute_url(self):
         return reverse('media_detail', kwargs={'pk': self.id})
-    
+
+YES_NO = (
+    ('Y', "Yes"),
+    ('N', 'NO')
+)
+
+class Journal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    media = models.ForeignKey(Media, on_delete=models.CASCADE)
+    last_date_watched = models.DateField()
+    continue_watching = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+        required=True
+    )
+    completed_watching = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+        required=True
+    )
+    would_watch_again = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+        required=True
+    )
+    movie = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+        required=True
+    )

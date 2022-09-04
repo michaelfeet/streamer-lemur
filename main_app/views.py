@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Media
+from .models import Media, Journal
 
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
@@ -21,3 +21,10 @@ class MediaList(ListView):
 
 class MediaDetail(DetailView):
     model=Media
+
+class JournalCreate(CreateView):
+    model = Journal
+    fields = '__all__' 
+
+def ournalCreate(request):
+    pass
