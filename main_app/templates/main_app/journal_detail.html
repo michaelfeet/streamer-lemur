@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<h1>Journal Detail </h1>
+<h1>{{media.name}} </h1>
 <div class='container'
     <div class="row">
         <div class="card col-3">
@@ -18,8 +18,12 @@
         <div class="card col-8">
             <div class="card-content">
                 <h6>Description:</h6>
-                <p class=""></p>
+                <p class="">{{media.description}}</p>
             </div>
+        </div>
+        <div class="card-action">
+            <a href="{% url 'journals_update' journal.id %}">Edit</a>
+            <a href="{% url 'journals_delete' journal.id %}">Delete</a>
         </div>
     </div>
 </div>

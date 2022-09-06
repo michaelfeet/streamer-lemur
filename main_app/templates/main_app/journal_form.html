@@ -2,7 +2,11 @@
 
 
 {% block content %}
-<h1 class="mx-auto" style="width: 200px">Add Media</h1>
+{% if object %}
+    <h1>Edit Journal</h1>
+{% else %}
+    <h1>Add Journal</h1>
+{% endif %}
     <form action='' method="POST">
         {% csrf_token %}
         <table>
