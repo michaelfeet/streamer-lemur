@@ -79,4 +79,4 @@ class Journal(models.Model):
     )
 
     def get_absolute_url(self):
-        return reverse('journals_detail', kwargs={'pk': self.id})
+        return reverse('journals_detail', kwargs={'journal_id': self.id})
