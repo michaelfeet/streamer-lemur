@@ -1,5 +1,17 @@
+
 {% extends 'base.html' %}
 {% block content %}
-    <h1>This is the HOME OF THE LEMURS</h1>
+{% load static %}   
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>This is the home of the Lemurs</h1>
+      </div>
+      <div class="col">
+        <img class="logo" src="{% static '/img/lemur.png' %}" alt="Logo" width="" height="">
+      </div>
+    </div>
+  </div>
 {% endblock %}
     
