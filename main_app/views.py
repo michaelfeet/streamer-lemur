@@ -17,30 +17,33 @@ from django.contrib.auth.forms import UserCreationForm
 def home(request):
     return render(request, 'home.html')
 
+
 class MediaCreate(CreateView):
-    model=Media
+    model = Media
     fields = '__all__'
 
+
 class MediaList(ListView):
-    model=Media
+    model = Media
+
 
 class MediaDetail(DetailView):
-    model=Media
+    model = Media
 
 
 class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
-    fields = ['last_date_watched', 'continue_watching', 'completed_watching', 'would_watch_again', 'movie']
-    
-    
+    fields = ['last_date_watched', 'continue_watching',
+              'completed_watching', 'would_watch_again', 'movie']
+
     def form_valid(self, form):
-        media = Media.objects.get(id= self.kwargs['media_id'])
+        media = Media.objects.get(id=self.kwargs['media_id'])
         form.instance.user = self.request.user
         form.instance.media = media
         return super().form_valid(form)
-    
 
-def journal_list( request):
+
+def journal_list(request):
     journal_list = Journal.objects.filter(user=request.user)
     return render(request, 'main_app/journal_list.html', {'journal_list': journal_list})
 
@@ -53,15 +56,18 @@ def journal_detail(request, journal_id):
 
 
 class JournalUpdate(UpdateView):
-    model=Journal
-    fields = ['last_date_watched', 'continue_watching', 'completed_watching', 'would_watch_again', 'movie']
+    model = Journal
+    fields = ['last_date_watched', 'continue_watching',
+              'completed_watching', 'would_watch_again', 'movie']
+
 
 class JournalDelete(DeleteView):
-    model=Journal
+    model = Journal
     success_url = '/journals/'
 
+
 def signup(request):
-    error_message ='this was so easy, how'
+    error_message = 'this was so easy, how'
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():

@@ -28,6 +28,7 @@ MPAA_RATINGS = (
     ('O', 'Not Rated')
 )
 
+
 class Media(models.Model):
     name = models.CharField(max_length=350)
     description = models.TextField(max_length=650)
@@ -41,13 +42,16 @@ class Media(models.Model):
         choices=MPAA_RATINGS,
         default=MPAA_RATINGS[0][0]
     )
+
     def get_absolute_url(self):
         return reverse('media_detail', kwargs={'pk': self.id})
+
 
 YES_NO = (
     ('Y', "Yes"),
     ('N', 'NO')
 )
+
 
 class Journal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -61,17 +65,18 @@ class Journal(models.Model):
     completed_watching = models.CharField(
         max_length=1,
         choices=YES_NO,
-     
+
     )
     would_watch_again = models.CharField(
         max_length=1,
         choices=YES_NO,
-       
+
     )
     movie = models.CharField(
         max_length=1,
         choices=YES_NO,
-       
+
     )
+
     def get_absolute_url(self):
         return reverse('journals_detail', kwargs={'pk': self.id})

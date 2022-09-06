@@ -4,10 +4,10 @@
 <h1>Log In</h1>
 
 <form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="Log In">
+    <input type="hidden" name="next" value="{{ next }}">
 </form>
-
+<h6>New to Streamer Lemurs? <span><a href="{% url 'signup' %}">Sign Up</a></span></h6>
 {% endblock %}

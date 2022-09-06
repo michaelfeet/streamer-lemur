@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Signup In</h1>
+<h1>Sign Up</h1>
 
 {% if errormessage %}
-    <p class="red-text">{{error_message}}</p>
+<p class="red-text">{{error_message}}</p>
 {% endif %}
 
 <form method="post" action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="signup">
-  </form>
+    <input type="submit" class="btn" value="Sign Up">
+</form>
+<h6>Already a Streamer Lemur? <span><a href="{% url 'login' %}">Log In</a></span></h6>
 {% endblock %}
