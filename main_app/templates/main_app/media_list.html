@@ -8,13 +8,12 @@
 <div class="row">
     {% for media in media_list %}
         <a href="{% url 'media_detail' media.id %}">
-
             <div class="card col-3">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">{{media.name}}</p>
                 </div>
-            </div>        
+            </div>       
         </a>
     {% endfor %}
 </div>
