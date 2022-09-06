@@ -9,3 +9,10 @@ form {
     text-align: left;
 }
 
+nav li {
+    padding-right: 15px;
+}
+
+nav li a {
+    text-decoration: none;
+}
