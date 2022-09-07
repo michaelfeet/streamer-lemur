@@ -5,19 +5,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-GENRES = (
-    ('H', 'Horror'),
-    ('S', 'Scify'),
-    ('A', 'Action'),
-    ('C', 'Comedy'),
-    ('D', 'Drama'),
-    ('R', 'Romance'),
-    ('O', 'Rom Com'),
-    ('T', 'Thriller'),
-    ('M', 'Mystery'),
-    ('F', 'Family'),
-)
-
 MPAA_RATINGS = (
     ('G', 'G'),
     ('P', 'PG'),
@@ -30,7 +17,7 @@ MPAA_RATINGS = (
 
 YES_NO = (
     ('Y', "Yes"),
-    ('N', 'NO')
+    ('N', 'No')
 )
 
 STREAMING = (
@@ -48,56 +35,35 @@ STREAMING = (
 class Media(models.Model):
     name = models.CharField(max_length=350)
     description = models.TextField(max_length=650)
-    genre = models.CharField(
-        max_length=1,
-        choices=GENRES,
-        default=GENRES[0][0]
-    )
-    netflix = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    amazon_prime = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    disney_plus = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    funimation = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    hulu = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    hbo_max = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    peacock = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    crunchyroll = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    paramount_plus = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-    apple_tv_plus = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
+    action_genre = models.BooleanField()
+    anime = models.BooleanField()
+    cartoon = models.BooleanField()
+    comedy = models.BooleanField()
+    documentary = models.BooleanField()
+    drama = models.BooleanField()
+    family = models.BooleanField()
+    fantasy = models.BooleanField()
+    horror = models.BooleanField()
+    mystery = models.BooleanField()
+    romance = models.BooleanField()
+    scifi = models.BooleanField()
+    thriller = models.BooleanField()
     mpaa_rating = models.CharField(
         max_length=1,
         choices=MPAA_RATINGS,
         default=MPAA_RATINGS[0][0]
     )
+    netflix = models.BooleanField()
+    amazon_prime = models.BooleanField()
+    disney_plus = models.BooleanField()
+    funimation = models.BooleanField()
+    hulu = models.BooleanField()
+    hbo_max = models.BooleanField()
+    peacock = models.BooleanField()
+    crunchyroll = models.BooleanField()
+    paramount_plus = models.BooleanField()
+    apple_tv_plus = models.BooleanField()
+    
 
     def get_absolute_url(self):
         return reverse('media_detail', kwargs={'pk': self.id})
@@ -115,7 +81,6 @@ class Journal(models.Model):
         choices=STREAMING,
         default=STREAMING[0][0]
     )
-
     last_date_watched = models.DateField()
     continue_watching = models.CharField(
         max_length=1,
@@ -124,17 +89,14 @@ class Journal(models.Model):
     completed_watching = models.CharField(
         max_length=1,
         choices=YES_NO,
-
     )
     would_watch_again = models.CharField(
         max_length=1,
         choices=YES_NO,
-
     )
     movie = models.CharField(
         max_length=1,
         choices=YES_NO,
-
     )
 
     def get_absolute_url(self):
