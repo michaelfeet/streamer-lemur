@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1>{{media.name}} </h1>
+<h1 class='text-light'>{{media.name}} </h1>
 <div class='container'>
     <div class="row">
         <div class="card col-3">
@@ -45,10 +45,7 @@
                 {% if media.apple_tv_plus == 'Y' %}
                     <p>Apple TV+</p>
                 {% endif %}
-                <h6>Genre</h6>
-                <p>{{media.genre}}</p>
-                <h6>MPAA Rating:</h6>
-                <p>{{media.mpaa_rating}}</p>
+                    
             </div>
         </div>
         <div class="card col-8">
@@ -60,7 +57,7 @@
     </div>
 </div>
 <div class="row">
-    <a href="{% url 'journal_create' media.id %}" class="btn">Create a Jounal</a>
+    <a href="{% url 'journal_create' media.id %}" class="btn btn-secondary">Create a Jounal</a>
 </div>
 
 

@@ -112,7 +112,8 @@ class Journal(models.Model):
     # media = models.
     where_am_i_watching = models.CharField(
         max_length=1,
-        choices=STREAMING
+        choices=STREAMING,
+        default=STREAMING[0][0]
     )
 
     last_date_watched = models.DateField()
