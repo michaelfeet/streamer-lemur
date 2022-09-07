@@ -2,14 +2,12 @@
 
 
 {% block content %}
-
-<h1 class='text-light'>This is the Media List view</h1>
 <div class="container">
-    <div class="row">
+    <div class="row row-cols-3">
         {% for media in media_list %}
         <a href="{% url 'media_detail' media.id %}">
-            <div class="card col-3">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="card col"  >
+                <img src="{{media.photo_set.first.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">{{media.name}}</p>
                 </div>
