@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .models import Media, Journal
+from .models import Media, Journal, Photo
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -12,6 +12,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
+import uuid
+import boto3
+
+session = boto3.Session(profile_name='streamerlemur')
+streamerlemur_s3_client = session.client('s3')
+
+S3_BASE_URL = 'https://s3-us-west-2.amazonaws.com/'
+BUCKET = 'streamerlemur'
 
 # Create your views here.
 def home(request):
@@ -81,3 +89,16 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+def add_photo(request, media_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            Photo.objects.create(url=url, media_id=media_id)
+        except:
+            print('An error occurred uploading file to S3')
+    return redirect('media_detail', pk=media_id)

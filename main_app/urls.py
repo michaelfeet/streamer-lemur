@@ -11,5 +11,6 @@ urlpatterns =[
     path('journals/<int:journal_id>', views.journal_detail, name='journals_detail'),
     path('journals/<int:pk>/update/', views.JournalUpdate.as_view(), name='journals_update'),
     path('journals/<int:pk>/delete/', views.JournalDelete.as_view(), name='journals_delete'),
-    path('accounts/signup/', views.signup, name='signup')
+    path('accounts/signup/', views.signup, name='signup'),
+    path('media/<int:media_id>/add_photo/', views.add_photo, name='add_photo')
 ]
