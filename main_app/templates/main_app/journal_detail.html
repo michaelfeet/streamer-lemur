@@ -7,12 +7,25 @@
     <div class="row">
         <div class="card col-3">
             <div class="-content">
-                <h6>Where is it streaming</h6>
-                <p class="">Place Holder</p>
-                <h6>Genre</h6>
-                <p></p>
-                <h6>MPAA Rating:</h6>
-                <p></p>
+                <h6>Where am I streaming it?</h6>
+                <p class="">{{journal.get_where_am_i_watching_display}}</p>
+                <h6>When did I last watch this?</h6>
+                <p>{{journal.last_date_watched}}</p>
+                <h6>Do I want to continue watching this?</h6>
+                <p>{{journal.get_continue_watching_display}}</p>
+                <h6>Have I completed this?</h6>
+                <p class="">{{journal.get_completed_watching_display}}</p>
+                
+                {% if journal.completed_watching == "Y" %}
+                    <h6>Would i Watch this again</h6>
+                    <p>{{journal.get_would_watch_again_display}}</p>
+                {% endif %}
+                {% if journal.movie == 'Y' %}
+                    <h6>This is a movie</h6>
+                {% else %}
+                    <h6>This is a series</h6>
+                {% endif %}
+                    
             </div>
         </div>
         <div class="card col-8">

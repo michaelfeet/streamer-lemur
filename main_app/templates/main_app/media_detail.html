@@ -11,38 +11,76 @@
                 <h6>Where is it streaming</h6>
                 <p class="">Place Holder</p>
                 <h6>Genre</h6>
-                <p>{{media.get_genre_display}}</p>
+                    {% if media.action_genre %}
+                        <p>Action</p>
+                    {% endif %}
+                    {% if media.anime %}
+                        <p>Anime</p>
+                    {% endif %}
+                    {% if media.cartoon %}
+                        <p>Cartoon</p>
+                    {% endif %}
+                    {% if media.comedy %}
+                        <p>Comedy</p>
+                    {% endif %}
+                    {% if media.documentary %}
+                        <p>Documentary</p>
+                    {% endif %}
+                    {% if media.drama %}
+                        <p>Drama</p>
+                    {% endif %}
+                    {% if media.family %}
+                        <p>Family</p>
+                    {% endif %}
+                    {% if media.fantasy %}
+                        <p>Fantasy</p>
+                    {% endif %}
+                    {% if media.horror %}
+                        <p>Horror</p>
+                    {% endif %}
+                    {% if media.mystery %}
+                        <p>Mystery</p>
+                    {% endif %}
+                    {% if media.Romance %}
+                        <p>Romance</p>
+                    {% endif %}
+                    {% if media.scifi %}
+                        <p>Sci-fi</p>
+                    {% endif %}
+                    {% if media.thriller %}
+                        <p>Thriller</p>
+                    {% endif %}
                 <h6>MPAA Rating:</h6>
                 <p>{{media.get_mpaa_rating_display}}</p>
                 <h6>Streaming: </h6>
-                {% if media.netflix == 'Y' %}
+                {% if media.netflix %}
                     <p>Netflix</p>
                 {% endif %}
-                {% if media.amazon_prime == 'Y' %}
+                {% if media.amazon_prime %}
                     <p>Amazon Prime</p>
                 {% endif %}
-                {% if media.disney_plus == 'Y' %}
+                {% if media.disney_plus %}
                     <p>Disney+</p>
                 {% endif %}
-                {% if media.funimation == 'Y' %}
+                {% if media.funimation %}
                     <p>Funimation</p>
                 {% endif %}
-                {% if media.hulu == 'Y' %}
+                {% if media.hulu %}
                     <p>Hulu</p>
                 {% endif %}
-                {% if media.hbo_max == 'Y' %}
+                {% if media.hbo_max %}
                     <p>HBO Max</p>
                 {% endif %}
-                {% if media.peacock == 'Y' %}
+                {% if media.peacock %}
                     <p>Peacock</p>
                 {% endif %}
-                {% if media.crunchyroll == 'Y' %}
+                {% if media.crunchyroll %}
                     <p>Crunchyroll</p>
                 {% endif %}
-                {% if media.paramount_plus == 'Y' %}
+                {% if media.paramount_plus %}
                     <p>Paramount+</p>
                 {% endif %}
-                {% if media.apple_tv_plus == 'Y' %}
+                {% if media.apple_tv_plus %}
                     <p>Apple TV+</p>
                 {% endif %}
                     
