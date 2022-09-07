@@ -14,6 +14,41 @@
                 <p>{{media.genre}}</p>
                 <h6>MPAA Rating:</h6>
                 <p>{{media.mpaa_rating}}</p>
+                <h6>Streaming: </h6>
+                {% if media.netflix == 'Y' %}
+                    <p>Netflix</p>
+                {% endif %}
+                {% if media.amazon_prime == 'Y' %}
+                    <p>Amazon Prime</p>
+                {% endif %}
+                {% if media.disney_plus == 'Y' %}
+                    <p>Disney+</p>
+                {% endif %}
+                {% if media.funimation == 'Y' %}
+                    <p>Funimation</p>
+                {% endif %}
+                {% if media.hulu == 'Y' %}
+                    <p>Hulu</p>
+                {% endif %}
+                {% if media.hbo_max == 'Y' %}
+                    <p>HBO Max</p>
+                {% endif %}
+                {% if media.peacock == 'Y' %}
+                    <p>Peacock</p>
+                {% endif %}
+                {% if media.crunchyroll == 'Y' %}
+                    <p>Crunchyroll</p>
+                {% endif %}
+                {% if media.paramount_plus == 'Y' %}
+                    <p>Paramount+</p>
+                {% endif %}
+                {% if media.apple_tv_plus == 'Y' %}
+                    <p>Apple TV+</p>
+                {% endif %}
+                <h6>Genre</h6>
+                <p>{{media.genre}}</p>
+                <h6>MPAA Rating:</h6>
+                <p>{{media.mpaa_rating}}</p>
             </div>
         </div>
         <div class="card col-8">

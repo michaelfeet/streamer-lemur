@@ -28,7 +28,23 @@ MPAA_RATINGS = (
     ('O', 'Not Rated')
 )
 
+YES_NO = (
+    ('Y', "Yes"),
+    ('N', 'NO')
+)
 
+STREAMING = (
+    ('N', 'Netflix'),
+    ('A', 'Amazon Prime'),
+    ('D', 'Disney'),
+    ('F', 'Funimation'),
+    ('H', 'Hulu'),
+    ('B', 'HBO Max'),
+    ('P', 'Peacock'),
+    ('C', 'Crunchyroll'),
+    ('M', 'Paramount+'),
+    ('T', 'Apple TV+')
+)
 class Media(models.Model):
     name = models.CharField(max_length=350)
     description = models.TextField(max_length=650)
@@ -36,6 +52,46 @@ class Media(models.Model):
         max_length=1,
         choices=GENRES,
         default=GENRES[0][0]
+    )
+    netflix = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    amazon_prime = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    disney_plus = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    funimation = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    hulu = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    hbo_max = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    peacock = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    crunchyroll = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    paramount_plus = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
+    apple_tv_plus = models.CharField(
+        max_length=1,
+        choices=YES_NO,
     )
     mpaa_rating = models.CharField(
         max_length=1,
@@ -47,16 +103,18 @@ class Media(models.Model):
         return reverse('media_detail', kwargs={'pk': self.id})
 
 
-YES_NO = (
-    ('Y', "Yes"),
-    ('N', 'NO')
-)
+
 
 
 class Journal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     media = models.ForeignKey(Media, on_delete=models.CASCADE)
     # media = models.
+    where_am_i_watching = models.CharField(
+        max_length=1,
+        choices=STREAMING
+    )
+
     last_date_watched = models.DateField()
     continue_watching = models.CharField(
         max_length=1,
