@@ -15,40 +15,37 @@
                 <h6>MPAA Rating:</h6>
                 <p>{{media.mpaa_rating}}</p>
                 <h6>Streaming: </h6>
-                {% if media.netflix == 'Y' %}
+                {% if media.netflix == Yes %}
                     <p>Netflix</p>
                 {% endif %}
-                {% if media.amazon_prime == 'Y' %}
+                {% if media.amazon_prime == Yes %}
                     <p>Amazon Prime</p>
                 {% endif %}
-                {% if media.disney_plus == 'Y' %}
+                {% if media.disney_plus == Yes %}
                     <p>Disney+</p>
                 {% endif %}
-                {% if media.funimation == 'Y' %}
+                {% if media.funimation == Yes %}
                     <p>Funimation</p>
                 {% endif %}
-                {% if media.hulu == 'Y' %}
+                {% if media.hulu == Yes %}
                     <p>Hulu</p>
                 {% endif %}
-                {% if media.hbo_max == 'Y' %}
+                {% if media.hbo_max == Yes %}
                     <p>HBO Max</p>
                 {% endif %}
-                {% if media.peacock == 'Y' %}
+                {% if media.peacock == Yes %}
                     <p>Peacock</p>
                 {% endif %}
-                {% if media.crunchyroll == 'Y' %}
+                {% if media.crunchyroll == Yes %}
                     <p>Crunchyroll</p>
                 {% endif %}
-                {% if media.paramount_plus == 'Y' %}
+                {% if media.paramount_plus == Yes %}
                     <p>Paramount+</p>
                 {% endif %}
-                {% if media.apple_tv_plus == 'Y' %}
+                {% if media.apple_tv_plus == Yes %}
                     <p>Apple TV+</p>
                 {% endif %}
-                <h6>Genre</h6>
-                <p>{{media.genre}}</p>
-                <h6>MPAA Rating:</h6>
-                <p>{{media.mpaa_rating}}</p>
+                    
             </div>
         </div>
         <div class="card col-8">
