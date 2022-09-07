@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
+
 import uuid
 import boto3
 
@@ -26,7 +27,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-class MediaCreate(CreateView):
+class MediaCreate(LoginRequiredMixin, CreateView):
     model = Media
     fields = '__all__'
 
@@ -51,12 +52,13 @@ class JournalCreate(LoginRequiredMixin, CreateView):
         form.instance.media = media
         return super().form_valid(form)
 
-
+@login_required
 def journal_list(request):
     journal_list = Journal.objects.filter(user=request.user)
     return render(request, 'main_app/journal_list.html', {'journal_list': journal_list})
 
 
+@login_required
 def journal_detail(request, journal_id):
     journal = Journal.objects.get(id=journal_id)
     media = Media.objects.get(id=journal.media.id)
@@ -64,14 +66,13 @@ def journal_detail(request, journal_id):
     return render(request, 'main_app/journal_detail.html', {'journal': journal, 'media': media})
 
 
-class JournalUpdate(UpdateView):
+class JournalUpdate(LoginRequiredMixin, UpdateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
               'completed_watching', 'would_watch_again', 
               'movie', 'where_am_i_watching']
 
-
-class JournalDelete(DeleteView):
+class JournalDelete(LoginRequiredMixin, DeleteView):
     model = Journal
     success_url = '/journals/'
 
@@ -90,6 +91,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+@login_required
 def add_photo(request, media_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
