@@ -3,13 +3,13 @@
 
 {% block content %}
 
-<h1 class="mx-auto" style="width: 200px">Add Media</h1>
-<form action='' method="POST">
+<h1 class="mx-auto text-light" style="width: 200px">Add Media</h1>
+<form class='text-light'action='' method="POST">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <input type='submit' button type="button" value='Submit!!' class="btn btn-dark"></button>
+    <input type='submit' button type="button" value='Submit!!' class="btn btn-secondary"></button>
 </form>
 
 

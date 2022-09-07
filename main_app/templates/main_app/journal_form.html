@@ -3,16 +3,16 @@
 
 {% block content %}
 {% if object %}
-<h1>Edit Journal</h1>
+<h1 class='text-light'>Edit Journal</h1>
 {% else %}
-<h1>Add Journal</h1>
+<h1 class='text-light'>Add Journal</h1>
 {% endif %}
-<form action='' method="POST">
+<form class='text-light' action='' method="POST">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value='Submit!!' class="btn">
+    <input type="submit" value='Submit!!' class="btn btn-secondary">
 </form>
 
 {% endblock content %}

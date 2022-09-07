@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1>{{media.name}} </h1>
+<h1 class='text-light'>{{media.name}} </h1>
 <div class='container'>
     <div class="row">
         <div class="card col-3">
@@ -15,34 +15,34 @@
                 <h6>MPAA Rating:</h6>
                 <p>{{media.mpaa_rating}}</p>
                 <h6>Streaming: </h6>
-                {% if media.netflix == Yes %}
+                {% if media.netflix == 'Y' %}
                     <p>Netflix</p>
                 {% endif %}
-                {% if media.amazon_prime == Yes %}
+                {% if media.amazon_prime == 'Y' %}
                     <p>Amazon Prime</p>
                 {% endif %}
-                {% if media.disney_plus == Yes %}
+                {% if media.disney_plus == 'Y' %}
                     <p>Disney+</p>
                 {% endif %}
-                {% if media.funimation == Yes %}
+                {% if media.funimation == 'Y' %}
                     <p>Funimation</p>
                 {% endif %}
-                {% if media.hulu == Yes %}
+                {% if media.hulu == 'Y' %}
                     <p>Hulu</p>
                 {% endif %}
-                {% if media.hbo_max == Yes %}
+                {% if media.hbo_max == 'Y' %}
                     <p>HBO Max</p>
                 {% endif %}
-                {% if media.peacock == Yes %}
+                {% if media.peacock == 'Y' %}
                     <p>Peacock</p>
                 {% endif %}
-                {% if media.crunchyroll == Yes %}
+                {% if media.crunchyroll == 'Y' %}
                     <p>Crunchyroll</p>
                 {% endif %}
-                {% if media.paramount_plus == Yes %}
+                {% if media.paramount_plus == 'Y' %}
                     <p>Paramount+</p>
                 {% endif %}
-                {% if media.apple_tv_plus == Yes %}
+                {% if media.apple_tv_plus == 'Y' %}
                     <p>Apple TV+</p>
                 {% endif %}
                     
@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="row">
-    <a href="{% url 'journal_create' media.id %}" class="btn">Create a Jounal</a>
+    <a href="{% url 'journal_create' media.id %}" class="btn btn-secondary">Create a Jounal</a>
 </div>
 
 
