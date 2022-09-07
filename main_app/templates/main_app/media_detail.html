@@ -11,9 +11,9 @@
                 <h6>Where is it streaming</h6>
                 <p class="">Place Holder</p>
                 <h6>Genre</h6>
-                <p>{{media.genre}}</p>
+                <p>{{media.get_genre_display}}</p>
                 <h6>MPAA Rating:</h6>
-                <p>{{media.mpaa_rating}}</p>
+                <p>{{media.get_mpaa_rating_display}}</p>
                 <h6>Streaming: </h6>
                 {% if media.netflix == 'Y' %}
                     <p>Netflix</p>
@@ -56,12 +56,14 @@
                         <img class="" src="{{photo.url}}">
                     {% empty %}
                         <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+                        {% if user.is_authenticated  %}
                         <form action="{% url 'add_photo' media.id %}" enctype="multipart/form-data" method="POST" class="">
                             {% csrf_token %}
                             <input type="file" name="photo-file">
                             <br><br>
                             <input type="submit" class="btn btn-secondary" value="Upload Photo">
                         </form>
+                        {% endif %}
                     {% endfor %}
                     
                     
