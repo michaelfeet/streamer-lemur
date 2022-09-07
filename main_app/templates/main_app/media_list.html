@@ -6,7 +6,7 @@
     <div class="row row-cols-3">
         {% for media in media_list %}
         <a href="{% url 'media_detail' media.id %}">
-            <div class="card col"  >
+            <div class="card col" style="width: 18rem;" >
                 <img src="{{media.photo_set.first.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">{{media.name}}</p>

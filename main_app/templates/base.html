@@ -35,15 +35,16 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!-- changes below -->
+                        <li><a href="{% url 'media_index' %}">View All Media</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'media_create' %}">Add Media</a></li>
-                        <li><a href="{% url 'media_index' %}">View All Media</a></li>
                         <li><a href="{% url 'journals_index' %}">View My Journals</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                         {% else %}
-                        <li><a href="{% url 'media_index' %}">View All Media</a></li>
+                    </ul>
+                        <ul class="nav navbar-nav navbar-right">
                         <li><a href="{% url 'login' %}">Log In</a></li>
                         <li><a href="{% url 'signup' %}">Sign Up</a></li>
                         {% endif %}  
