@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.urls import reverse
 
@@ -64,7 +65,10 @@ class Media(models.Model):
     crunchyroll = models.BooleanField()
     paramount_plus = models.BooleanField()
     apple_tv_plus = models.BooleanField()
-    
+    movie = models.CharField(
+        max_length=1,
+        choices=YES_NO,
+    )
 
     def get_absolute_url(self):
         return reverse('media_detail', kwargs={'pk': self.id})
@@ -83,6 +87,10 @@ class Journal(models.Model):
         default=STREAMING[0][0]
     )
     last_date_watched = models.DateField()
+    last_episode_watched = models.CharField(
+        max_length=100,
+        default='N/A'
+    )
     continue_watching = models.CharField(
         max_length=1,
         choices=YES_NO,
@@ -95,11 +103,6 @@ class Journal(models.Model):
         max_length=1,
         choices=YES_NO,
     )
-    movie = models.CharField(
-        max_length=1,
-        choices=YES_NO,
-    )
-
     def get_absolute_url(self):
         return reverse('journals_detail', kwargs={'journal_id': self.id})
 
