@@ -16,11 +16,11 @@ from django.contrib.auth.forms import UserCreationForm
 import uuid
 import boto3
 
-session = boto3.Session(profile_name='streamerlemur')
-streamerlemur_s3_client = session.client('s3')
+# session = boto3.Session(profile_name='collectorbucket')
+# streamerlemur_s3_client = session.client('s3')
 
-S3_BASE_URL = 'https://s3-us-west-2.amazonaws.com/'
-BUCKET = 'streamerlemur'
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'collectorbucket'
 
 # Create your views here.
 def home(request):

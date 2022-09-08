@@ -2,14 +2,15 @@
 
 
 {% block content %}
-<div class="container">
-    <div class="row row-cols-3">
+<div style="width: 55rem;" class="img_container">
+    <h1>All Media</h1>
+    <div class="gy-4 row row-cols-4">
         {% for media in media_list %}
         <a href="{% url 'media_detail' media.id %}">
-            <div class="card col" style="width: 18rem;" >
-                <img src="{{media.photo_set.first.url}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">{{media.name}}</p>
+            <div class="card col "  >
+                <img src="{{media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem" alt="...">
+                <div class="card-body ">
+                    <p style="color: rgb(81, 48, 226); text-align: center;" class="card-text">{{media.name}}</p>
                 </div>
             </div>
         </a>

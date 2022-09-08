@@ -52,7 +52,8 @@ class Media(models.Model):
         max_length=1,
         choices=MPAA_RATINGS,
         default=MPAA_RATINGS[0][0]
-    )
+     )
+    
     netflix = models.BooleanField()
     amazon_prime = models.BooleanField()
     disney_plus = models.BooleanField()
