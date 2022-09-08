@@ -10,13 +10,13 @@
         <div class='row m-2'>
             <label for="name" class="col-sm-5 col-form-label">Movie or Series Name:</label>
                 <div class="col-sm-12">
-                    <input type='text' name='name' class="form-control" id="name">
+                    <input type='text' required name='name' class="form-control" id="name">
                 </div>
         </div>
         <div class='row m-2'>
             <label for="description" class="col-5 col-form-label">Description:</label>
             <div class="col-12">
-                <textarea class='form-control ' name="description" id="description" style='height:200px'></textarea>
+                <textarea class='form-control' required name="description" id="description" style='height:200px'></textarea>
             </div>
         </div>
         <div class='row m-2'>
@@ -117,7 +117,7 @@
         <div class='row m-2'>
             <label for="mpaa_rating" class="col- col-form-label">MPAA Rating:</label>
             <div class="col-12">
-                <select name="mpaa_rating" id="mpaa-rating">
+                <select required name="mpaa_rating" id="mpaa-rating">
                     <option value="G" selected>G</option>
                     <option value="P" >PG</option>
                     <option value="1" >PG13</option>
@@ -205,7 +205,7 @@
                 <div class='row m-2'>
             <label for="id_movie" class="col- col-form-label">Movie or Series?</label>
             <div class="col-12">
-                <select name="movie" id="id_movie">
+                <select required name="movie" id="id_movie">
                     <option selected>-----</option>
                     <option value="Y" >Movie</option>
                     <option value="N" >Series or Other</option>
