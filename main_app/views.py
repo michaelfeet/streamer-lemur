@@ -15,12 +15,11 @@ from django.contrib.auth.forms import UserCreationForm
 import uuid
 import boto3
 
-# session = boto3.Session(profile_name='streamerlemurbucket1')
-# streamerlemurbucket1_s3_client = session.client('s3')
+session = boto3.Session(profile_name='streamerlemur')
+streamerlemur_s3_client = session.client('s3')
 
-S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
-BUCKET = 'streamerlemurbucket1'
-
+S3_BASE_URL = 'https://s3-us-west-2.amazonaws.com/'
+BUCKET = 'streamerlemur'
 
 def home(request):
     return render(request, 'home.html')
@@ -37,6 +36,15 @@ class MediaList(ListView):
 
 class MediaDetail(DetailView):
     model = Media
+    
+    def journal_exist(self):
+        media = Media.objects.get(id=self.kwargs['pk'])
+        # is we need to identify if a journal exists, using both the media object and the user object
+        # first grab all journals with associated with that media
+        journal_list = Journal.objects.filter(media=media)
+        # then take that list and see if any have the same user id
+        journal = journal_list.objects.filter(user=self.request.user)
+        return render(super(), {'journal': journal})
 
 
 class JournalCreate(LoginRequiredMixin, CreateView):

@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<h1 class="text-light">This is the Journal List view</h1>
-<div class="container">
-    <div class="row">
+<div style="width: 55rem;" class="img_container">
+    <h1>My Journals</h1>
+    <div class="row gy-4 row-cals-4">
         <h3 class= 'text-light'>Continue Watching</h3>
         {% for journal in journal_list %}
         {% if journal.continue_watching == 'Y' and journal.completed_watching == 'N' %}
         <a href="{% url 'journals_detail' journal.id %}">
             <div class="card col-3">
-                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top" alt="...">
+                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem">
                 <div class="card-body">
                     <p class="card-text">{{journal.media.name}}</p>
                 </div>
@@ -18,12 +18,15 @@
         </a>
         {% endif %}
         {% endfor %}
+    </div>
+    <br>
+    <div class="row gy-4 row-cals-4">
         <h3 class= 'text-light'>Watch Again</h3>
         {% for journal in journal_list %}
         {% if journal.completed_watching == 'Y' and journal.would_watch_again == 'Y' %}
         <a href="{% url 'journals_detail' journal.id %}">
             <div class="card col-3">
-                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top" alt="...">
+                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem">
                 <div class="card-body">
                     <p class="card-text">{{journal.media.name}}</p>
                 </div>
@@ -31,12 +34,15 @@
         </a>
         {% endif %}
         {% endfor %}
+    </div>
+    <br>
+    <div class="row gy-4 row-cals-4">
         <h3 class= 'text-light'>Have started but don't want to continue</h3>
         {% for journal in journal_list %}
         {% if journal.continue_watching == 'N' and journal.completed_watching == 'N' %}
         <a href="{% url 'journals_detail' journal.id %}">
             <div class="card col-3">
-                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top" alt="...">
+                <img src="{{journal.media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem">
                 <div class="card-body">
                     <p class="card-text">{{journal.media.name}}</p>
                 </div>
@@ -44,6 +50,9 @@
         </a>
         {% endif %}
         {% endfor %}
+    </div>
+    <br>
+    <div class="row gy-4 row-cals-4">
         <h3 class= 'text-light'>Don't want to watch again</h3>
         {% for journal in journal_list %}
         {% if journal.would_watch_again == 'N' %}
