@@ -16,7 +16,7 @@ import uuid
 import boto3
 
 # session = boto3.Session(profile_name='streamerlemurbucket1')
-# streamerlemur_s3_client = session.client('s3')
+# streamerlemurbucket1_s3_client = session.client('s3')
 
 S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'streamerlemurbucket1'
