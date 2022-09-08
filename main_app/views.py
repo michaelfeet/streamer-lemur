@@ -51,7 +51,7 @@ class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
               'completed_watching', 'would_watch_again',
-              'movie', 'where_am_i_watching']
+              'where_am_i_watching']
 
     def form_valid(self, form):
         media = Media.objects.get(id=self.kwargs['media_id'])
@@ -78,7 +78,7 @@ class JournalUpdate(LoginRequiredMixin, UpdateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
               'completed_watching', 'would_watch_again',
-              'movie', 'where_am_i_watching']
+              'where_am_i_watching']
 
 
 class JournalDelete(LoginRequiredMixin, DeleteView):
