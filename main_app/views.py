@@ -12,17 +12,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-
 import uuid
 import boto3
 
-# session = boto3.Session(profile_name='collectorbucket')
+# session = boto3.Session(profile_name='streamerlemurbucket1')
 # streamerlemur_s3_client = session.client('s3')
 
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'collectorbucket'
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'streamerlemurbucket1'
 
-# Create your views here.
+
 def home(request):
     return render(request, 'home.html')
 
@@ -43,7 +42,7 @@ class MediaDetail(DetailView):
 class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
-              'completed_watching', 'would_watch_again', 
+              'completed_watching', 'would_watch_again',
               'movie', 'where_am_i_watching']
 
     def form_valid(self, form):
@@ -51,6 +50,7 @@ class JournalCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         form.instance.media = media
         return super().form_valid(form)
+
 
 @login_required
 def journal_list(request):
@@ -69,8 +69,9 @@ def journal_detail(request, journal_id):
 class JournalUpdate(LoginRequiredMixin, UpdateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
-              'completed_watching', 'would_watch_again', 
+              'completed_watching', 'would_watch_again',
               'movie', 'where_am_i_watching']
+
 
 class JournalDelete(LoginRequiredMixin, DeleteView):
     model = Journal
@@ -91,12 +92,14 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 @login_required
 def add_photo(request, media_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
         s3 = boto3.client('s3')
-        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
