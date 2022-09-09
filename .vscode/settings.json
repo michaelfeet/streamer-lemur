@@ -1,5 +1,0 @@
-{  "files.associations": {
-    "**/views/**/*.html": "django-html",
-    "*.tpl": "django-html"
-  },
-}
