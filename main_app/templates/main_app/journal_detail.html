@@ -15,17 +15,17 @@
                 <p>{{journal.get_continue_watching_display}}</p>
                 <h6>Have I completed this?</h6>
                 <p class="">{{journal.get_completed_watching_display}}</p>
-                
+
                 {% if journal.completed_watching == "Y" %}
-                    <h6>Would i Watch this again</h6>
-                    <p>{{journal.get_would_watch_again_display}}</p>
+                <h6>Would i Watch this again</h6>
+                <p>{{journal.get_would_watch_again_display}}</p>
                 {% endif %}
                 {% if journal.movie == 'Y' %}
-                    <h6>This is a movie</h6>
+                <h6>This is a movie</h6>
                 {% else %}
-                    <h6>This is a series</h6>
+                <h6>This is a series</h6>
                 {% endif %}
-                    
+
             </div>
         </div>
         <div class="card col-8">
