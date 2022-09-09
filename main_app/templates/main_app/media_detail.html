@@ -8,8 +8,6 @@
     <div class="row">
         <div class="card col-sm-12 col-md-3">
             <div class="card-content">
-                <h6>Where is it streaming</h6>
-                <p>Place Holder</p>
                 <h6>Genre</h6>
                 {% if media.action_genre %}
                 <p>Action</p>
@@ -50,8 +48,10 @@
                 {% if media.thriller %}
                 <p>Thriller</p>
                 {% endif %}
+
                 <h6>MPAA Rating:</h6>
                 <p>{{media.get_mpaa_rating_display}}</p>
+
                 <h6>Streaming: </h6>
                 {% if media.netflix %}
                 <p>Netflix</p>
@@ -83,7 +83,6 @@
                 {% if media.apple_tv_plus %}
                 <p>Apple TV+</p>
                 {% endif %}
-
             </div>
         </div>
         <div class="mx-1 card col-sm-12 col-md-6">
@@ -110,7 +109,7 @@
     </div>
 </div>
 <div class="row">
-    <a href="{% url 'journal_create' media.id %}" class="col-2 btn btn-dark">Create a Jounal</a>
+    <a href="{% url 'journal_create' media.id %}" class="col-2 btn btn-dark">Create a Journal</a>
 </div>
 
 

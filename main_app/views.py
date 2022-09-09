@@ -15,12 +15,12 @@ from django.contrib.auth.forms import UserCreationForm
 import uuid
 import boto3
 
-# session = boto3.Session(profile_name='streamerlemur')
-# streamerlemur_s3_client = session.client('s3')
 
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'collectorbucket'
+# session = boto3.Session(profile_name='streamerlemurbucket1')
+# streamerlemurbucket1_s3_client = session.client('s3')
 
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'streamerlemurbucket1'
 
 def home(request):
     return render(request, 'home.html')
@@ -52,7 +52,7 @@ class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
               'completed_watching', 'would_watch_again',
-              'where_am_i_watching']
+              'where_am_i_watching', 'last_episode_watched']
 
     def form_valid(self, form):
         media = Media.objects.get(id=self.kwargs['media_id'])
@@ -79,7 +79,7 @@ class JournalUpdate(LoginRequiredMixin, UpdateView):
     model = Journal
     fields = ['last_date_watched', 'continue_watching',
               'completed_watching', 'would_watch_again',
-              'where_am_i_watching']
+              'where_am_i_watching', 'last_episode_watched']
 
 
 class JournalDelete(LoginRequiredMixin, DeleteView):
