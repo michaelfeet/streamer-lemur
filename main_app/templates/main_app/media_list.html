@@ -7,8 +7,9 @@
     <div class="gy-4 row row-cols-4">
         {% for media in media_list %}
         <a href="{% url 'media_detail' media.id %}">
-            <div class="card h-100 col "  >
-                <img src="{{media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem" alt="...">
+            <div class="card h-100 col ">
+                <img src="{{media.photo_set.first.url}}" class="card-img-top img-thumbnail" style="height:17rem"
+                    alt="...">
                 <div class="card-body ">
                     <p style="color: rgb(81, 48, 226); text-align: center;" class="card-text">{{media.name}}</p>
                 </div>

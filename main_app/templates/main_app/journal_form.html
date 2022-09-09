@@ -7,7 +7,7 @@
 {% else %}
 <h1 class='text-light'>Add Journal</h1>
 {% endif %}
-<form class= "text-light" action='' method="POST">
+<form class="text-light" action='' method="POST">
     {% csrf_token %}
     <table>
         {{ form.as_table }}

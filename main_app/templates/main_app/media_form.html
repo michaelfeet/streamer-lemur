@@ -4,19 +4,20 @@
 {% block content %}
 
 <h1 class="mx-auto text-light" style="width: 200px">Add Media</h1>
-<div >
-    <form class='form-group text-light'action='' method="POST">
+<div>
+    <form class='form-group text-light' action='' method="POST">
         {% csrf_token %}
         <div class='row m-2'>
             <label for="name" class="col-sm-5 col-form-label">Movie or Series Name:</label>
-                <div class="col-sm-12">
-                    <input type='text' required name='name' class="form-control" id="name">
-                </div>
+            <div class="col-sm-12">
+                <input type='text' required name='name' class="form-control" id="name">
+            </div>
         </div>
         <div class='row m-2'>
             <label for="description" class="col-5 col-form-label">Description:</label>
             <div class="col-12">
-                <textarea class='form-control' required name="description" id="description" style='height:200px'></textarea>
+                <textarea class='form-control' required name="description" id="description"
+                    style='height:200px'></textarea>
             </div>
         </div>
         <div class='row m-2'>
@@ -25,91 +26,91 @@
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='action_genre' id="action_genre">
                     <label class="form-check-label" for="defaultCheck1">
-                    Action
+                        Action
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='anime' id="anime">
                     <label class="form-check-label" for="defaultCheck1">
-                    Anime
+                        Anime
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='cartoon' id="cartoon">
                     <label class="form-check-label" for="defaultCheck1">
-                    Cartoon/Animation
+                        Cartoon/Animation
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='comedy' id="comedy">
                     <label class="form-check-label" for="defaultCheck1">
-                    Comedy
+                        Comedy
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='documentary' id="documentary">
                     <label class="form-check-label" for="defaultCheck1">
-                    Documentary
+                        Documentary
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='drama' id="drama">
                     <label class="form-check-label" for="defaultCheck1">
-                    Drama
+                        Drama
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='family' id="family">
                     <label class="form-check-label" for="defaultCheck1">
-                    Family
+                        Family
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='fantasy' id="fantasy">
                     <label class="form-check-label" for="defaultCheck1">
-                    Fantasy
+                        Fantasy
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='horror' id="horror">
                     <label class="form-check-label" for="defaultCheck1">
-                    Horror
+                        Horror
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='mystery' id="mystery">
                     <label class="form-check-label" for="defaultCheck1">
-                    Mystery
+                        Mystery
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='romance' id="romance">
                     <label class="form-check-label" for="defaultCheck1">
-                    Romance
+                        Romance
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='scifi' id="scifi">
                     <label class="form-check-label" for="defaultCheck1">
-                    Sci-fi
+                        Sci-fi
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='thriller' id="thriller">
                     <label class="form-check-label" for="defaultCheck1">
-                    Thriller
+                        Thriller
                     </label>
                 </div>
             </div>
@@ -119,12 +120,12 @@
             <div class="col-12">
                 <select required name="mpaa_rating" id="mpaa-rating">
                     <option value="G" selected>G</option>
-                    <option value="P" >PG</option>
-                    <option value="1" >PG13</option>
-                    <option value="N" >NC-17</option>
-                    <option value="R" >R</option>
-                    <option value="M" >Mature Audience, Be Advised</option>
-                    <option value="O" >Not Rated</option>
+                    <option value="P">PG</option>
+                    <option value="1">PG13</option>
+                    <option value="N">NC-17</option>
+                    <option value="R">R</option>
+                    <option value="M">Mature Audience, Be Advised</option>
+                    <option value="O">Not Rated</option>
                 </select>
             </div>
         </div>
@@ -134,85 +135,85 @@
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='netflix' id="netflix">
                     <label class="form-check-label" for="defaultCheck1">
-                    Netflix
+                        Netflix
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='amazon_prime' id="amazon_prime">
                     <label class="form-check-label" for="defaultCheck1">
-                    Amazon Prime
+                        Amazon Prime
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='disney_plus' id="disney_plus">
                     <label class="form-check-label" for="defaultCheck1">
-                    Disney+
+                        Disney+
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='funimation' id="funimation">
                     <label class="form-check-label" for="defaultCheck1">
-                    Funimation
+                        Funimation
                     </label>
-                    </div>
+                </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='hulu' id="hulu">
                     <label class="form-check-label" for="defaultCheck1">
-                    Hulu
+                        Hulu
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='hbo_max' id="hbo_max">
                     <label class="form-check-label" for="defaultCheck1">
-                    HBO Max
+                        HBO Max
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='peacock' id="peacock">
                     <label class="form-check-label" for="defaultCheck1">
-                    Peacock
+                        Peacock
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='crunchyroll' id="crunchyroll">
                     <label class="form-check-label" for="defaultCheck1">
-                    Crunchyroll
+                        Crunchyroll
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='paramount_plus' id="paramount_plus">
                     <label class="form-check-label" for="defaultCheck1">
-                    Paramount+
+                        Paramount+
                     </label>
                 </div>
 
                 <div class='col-3'>
                     <input class="form-check-input" type="checkbox" name='apple_tv_plus' id="apple_tv_plus">
                     <label class="form-check-label" for="defaultCheck1">
-                    Apple TV+
+                        Apple TV+
                     </label>
                 </div>
             </div>
         </div>
-                <div class='row m-2'>
+        <div class='row m-2'>
             <label for="id_movie" class="col- col-form-label">Movie or Series?</label>
             <div class="col-12">
                 <select required name="movie" id="id_movie">
                     <option selected>-----</option>
-                    <option value="Y" >Movie</option>
-                    <option value="N" >Series or Other</option>
+                    <option value="Y">Movie</option>
+                    <option value="N">Series or Other</option>
                 </select>
             </div>
         </div>
-        <input type='submit' button type="button" value='Submit' class="btn btn-dark"></button>
+        <input type='submit' button type="button" value='Submit' class="btn btn-dark"></input>
     </form>
 </div>
 
