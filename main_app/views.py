@@ -15,6 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 import uuid
 import boto3
 
+
 # session = boto3.Session(profile_name='streamerlemurbucket1')
 # streamerlemurbucket1_s3_client = session.client('s3')
 
