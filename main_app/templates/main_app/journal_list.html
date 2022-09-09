@@ -62,8 +62,7 @@
     <br>
     <div class="row gy-4 row-cols-4">
         {% for journal in journal_list %}
-        {% if journal.would_watch_again == 'N' and journal.continue_watching == 'N' and journal.completed_watching ==
-        'Y' %}
+        {% if journal.would_watch_again == 'N' and journal.continue_watching == 'N' and journal.completed_watching == 'Y' %}
         <a href="{% url 'journals_detail' journal.id %}">
             <div class="card col">
                 <img src="{{journal.media.photo_set.first.url}}" class="card-img-top img-thumbnail" alt="..."
