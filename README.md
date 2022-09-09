@@ -6,11 +6,8 @@ Do you have multiple streaming services? Can't find your movies or shows? Stream
 * Michael: GitHub Manager, Scrum Master
 * Tyson: Database Manager, Lead Mob Programmer
 
-
-
 # Deployment Link
 [Link to Streamer Lemur](https://streamerlemur.herokuapp.com/)
-
 
 # Visuals
 ![alt text](https://i.imgur.com/iGODmLk.png)
@@ -22,8 +19,6 @@ Do you have multiple streaming services? Can't find your movies or shows? Stream
 ![alt text](https://i.imgur.com/HBpWtGN.png)
 
 ![alt text](https://i.imgur.com/jGMrNZX.png)
-
-
 
 # Technologies Used
 * Django
@@ -49,7 +44,6 @@ Do you have multiple streaming services? Can't find your movies or shows? Stream
 | Create Journal model, user can record info about media they are watching with journal entry, edit and delete journal entry | 9/4/2022 | 9/6/2022 |
 |User can upload media image when creating a show, user can mark media as completed or do not wish to continue| 9/7/2022|9/7/2022|
 |User can see the list of media| 9/8/2022| 9/8/2022|
-
 
 # Planned Future Enhancements
 * API
