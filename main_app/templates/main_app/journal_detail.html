@@ -5,8 +5,8 @@
 <h1>{{media.name}} </h1>
 <div class='container'>
     <div class="row">
-        <div class="card col-3">
-            <div class="-content">
+        <div class="card col col-3">
+            <div class="card-content">
                 <h6>Where am I streaming it?</h6>
                 <p class="">{{journal.get_where_am_i_watching_display}}</p>
                 <h6>When did I last watch this?</h6>
@@ -24,24 +24,22 @@
                     <h6>This is a movie</h6>
                 {% else %}
                     <h6>This is a series</h6>
-                {% endif %}
-                    
+                {% endif %}                   
             </div>
         </div>
-        <div class="card col-8">
+        <div class="mx-2 card col-8">
             <div class="card-content">
                 <h6>Description:</h6>
                 <p class="">{{media.description}}</p>
             </div>
         </div>
         <div class="card-action">
-            <a class='btn' href="{% url 'journals_update' journal.id %}">Edit</a>
-            <a class='btn' href="{% url 'journals_delete' journal.id %}">Delete</a>
+            <a class='btn btn-dark' href="{% url 'journals_update' journal.id %}">Edit</a>
+            <a class='mx-1 btn btn-dark' href="{% url 'journals_delete' journal.id %}">Delete</a>
         </div>
     </div>
 </div>
 <div class="row">
-
 </div>
 
 
